@@ -154,7 +154,8 @@ module Solidus
       {}.tap do |results_hash|
         results_hash.merge!({
           authorization: result.transaction.id,
-          avs_result: { code: result.transaction.avs_street_address_response_code }
+          avs_result: { code: result.transaction.avs_street_address_response_code },
+          cvv_result: result.transaction.cvv_response_code
         }) if result.success?
       end
     end
